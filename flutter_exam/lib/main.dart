@@ -25,13 +25,15 @@ class MyApp extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(
-                          "https://picsum.photos/800/400"), // Updated to a valid image URL
+                          "https://fastly.picsum.photos/id/16/2500/1667.jpg?hmac=uAkZwYc5phCRNFTrV_prJ_0rP0EdwJaZ4ctje2bY7aE"), // Updated to a valid image URL
                       fit: BoxFit.cover,
                     ),
                   ),
                   child: Container(
-                    width: double.infinity,
+                    width: double.infinity - 120,
                     height: 120,
+                    padding: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(bottom: 10),
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -43,11 +45,34 @@ class MyApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text("Andes Mountains", style: TextStyle(color: Colors.white, fontSize: 24)),
-                        Row(children: [
-                          Icon(Icons.location_on_outlined, color: Colors.white),
-                          Text("South America", style: TextStyle(color: Colors.white)),
-                        ],)
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Andes Mountains",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 24)),
+                            Row(
+                              children: [
+                                Icon(Icons.location_on_outlined,
+                                    color: Colors.white),
+                                Text("South America",
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Price",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 24)),
+                            Text("230" , // Updated to the correct price
+                                style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -115,25 +140,28 @@ class MyApp extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Center(
-                child: GestureDetector(
-                  onTap: () {
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const  Center(
-                      child: Text(
-                        "Book now",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                  child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                )
-              ),
+                  child: const Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Buy now", style: TextStyle(color: Colors.white)),
+                        SizedBox(width: 10),
+                        Icon(Icons.send, color: Colors.white ,),
+                      ],
+                    )
+                  ),
+                ),
+              )),
             ],
           ),
         ),
